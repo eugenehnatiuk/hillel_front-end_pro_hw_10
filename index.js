@@ -7,6 +7,22 @@
 */
 
 // debugger;
+
+function pow(num, degree) {
+  // if (degree === 0) {
+  //   return 1;
+  // } else if (degree > 0) {
+  //   return num * pow(num, degree - 1);
+  // } else {
+  //   return 1 / (num * pow(num, -degree - 1));
+  // }
+  return degree === 0
+    ? 1
+    : degree > 0
+    ? num * pow(num, degree - 1)
+    : 1 / (num * pow(num, -degree - 1));
+}
+
 let numInput = prompt('Введіть число, які хочете возвести в ступінь.');
 let degreeInput = prompt(
   'Введіть ціле числове значення ступеня у яке хочете возвести число'
@@ -18,7 +34,7 @@ while (
     !degreeInput?.trim() ||
     isNaN(numInput) ||
     isNaN(degreeInput) ||
-    !Number.isInteger(parseFloat(degreeInput)))
+    !Number.isInteger(parseInt(degreeInput)))
 ) {
   numInput = !numInput?.trim()
     ? prompt('Пусте значення не можна возвести в ступінь. Введіть число!')
@@ -54,25 +70,12 @@ while (
 if (numInput === null || degreeInput === null) {
   alert('Відміна');
 } else {
-  function pow(num, degree) {
-    // if (degree === 0) {
-    //   return 1;
-    // } else if (degree > 0) {
-    //   return num * pow(num, degree - 1);
-    // } else {
-    //   return 1 / (num * pow(num, -degree - 1));
-    // }
-    return degree === 0
-      ? 1
-      : degree > 0
-      ? num * pow(num, degree - 1)
-      : 1 / (num * pow(num, -degree - 1));
-  }
-
   const result = pow(numInput, degreeInput);
   alert(
     isNaN(result)
       ? `Вираз '${numInput} в ступені ${degreeInput}' не має сенсу.`
-      : `Число ${numInput} в ступені ${degreeInput} дорівнює ${result}.`
+      : `Число ${numInput} в ступені ${parseInt(
+          degreeInput
+        )} дорівнює ${result}`
   );
 }
