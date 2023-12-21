@@ -74,6 +74,8 @@ if (numInput === null || degreeInput === null) {
 } else {
   const result = pow(parseFloat(numInput), parseInt(degreeInput));
   alert(
-    `Число ${numInput.trim()} в ступені ${parseInt(degreeInput)} дорівнює ${result}`
+    `Число ${parseFloat(numInput.trim())} в ступені ${parseInt(
+      degreeInput
+    )} дорівнює ${result}`
   );
 }
